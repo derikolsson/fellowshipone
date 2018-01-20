@@ -29,6 +29,10 @@ module Fellowshipone
         post('/v1/People.json', person_params.to_json)
       end
 
+      def update_person(id, person_params)
+        put("/v1/People/#{id}.json", person_params.to_json)
+      end
+
       def search_for_person(name: nil, email: nil, include: nil)
         options = {}
         options[:searchfor] = name if name
