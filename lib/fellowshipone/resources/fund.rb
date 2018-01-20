@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Fellowshipone
   class Client
     module Fund
-
       def funds
         response = get('/giving/v1/funds')
         Fellowshipone::Fund.format(response)
@@ -14,7 +15,6 @@ module Fellowshipone
       def subfunds(fund_id)
         get("/giving/v1/funds/#{fund_id}/subfunds")
       end
-
     end
   end
 end

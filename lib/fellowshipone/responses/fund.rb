@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 module Fellowshipone
   class Fund
-
     def self.format(res)
-      response = res["funds"]["fund"]
+      response = res['funds']['fund']
       if response.is_a?(Array)
-        response.map{|fund| format_fund(fund) }
+        response.map { |fund| format_fund(fund) }
       else
         format_fund(response)
       end
@@ -12,8 +13,8 @@ module Fellowshipone
 
     def self.format_fund(fund)
       OpenStruct.new(
-        id:   fund["@id"],
-        name: fund["name"],
+        id:   fund['@id'],
+        name: fund['name']
       )
     end
   end

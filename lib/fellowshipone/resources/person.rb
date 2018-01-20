@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Fellowshipone
   class Client
     # Person Realm
@@ -29,8 +31,8 @@ module Fellowshipone
 
       def search_for_person(name: nil, email: nil)
         options = {}
-        options.merge!(searchfor: name)      if name
-        options.merge!(communication: email) if email
+        options[:searchfor] = name if name
+        options[:communication] = email if email
 
         params = Addressable::URI.form_encode(options)
         get("/v1/People/Search.json?#{params}").results

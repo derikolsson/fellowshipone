@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'faraday'
 require 'faraday_middleware'
 require 'simple_oauth'
 require 'json'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
-Dir[File.expand_path('../responses/*.rb', __FILE__)].each{ |f| require f }
+Dir[File.expand_path('../responses/*.rb', __FILE__)].each { |f| require f }
 
 module Fellowshipone
   class Client
@@ -52,7 +54,7 @@ module Fellowshipone
       end
     end
 
-    def delete(path, options = {})
+    def delete(path, _options = {})
       connection.delete do |req|
         req.url path
       end.body
@@ -67,7 +69,8 @@ module Fellowshipone
     private
 
     def connection
-      Faraday.new(url: "https://#{church_code}.fellowshiponeapi.com", headers: { accept: 'application/json' }) do |connection|
+      Faraday.new(url: "https://#{church_code}.fellowshiponeapi.com",
+                  headers: { accept: 'application/json' }) do |connection|
         connection.request  :json
         connection.request  :oauth, oauth_data
         connection.response :logger if logger
