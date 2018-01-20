@@ -29,10 +29,11 @@ module Fellowshipone
         post('/v1/People.json', person_params.to_json)
       end
 
-      def search_for_person(name: nil, email: nil)
+      def search_for_person(name: nil, email: nil, include: nil)
         options = {}
         options[:searchfor] = name if name
         options[:communication] = email if email
+        options[:include] = include
 
         params = Addressable::URI.form_encode(options)
         get("/v1/People/Search.json?#{params}").results
