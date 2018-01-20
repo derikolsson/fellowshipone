@@ -2,8 +2,8 @@
 
 require './test/test_helper'
 
-class FellowshipOnePersonTest < Minitest::Test
+class FellowshiponePersonTest < Minitest::Test
   def test_exists
-    assert FellowshipOne::Person
+    assert Fellowshipone::Client::Person
   end
 end

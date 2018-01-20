@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './lib/fellowship_one'
+require './lib/fellowshipone'
 require 'minitest/autorun'
 require 'webmock/minitest'
 require 'vcr'
