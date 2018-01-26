@@ -50,6 +50,10 @@ module Fellowshipone
       def search_for_person_by_household(household_id)
         get("/v1/People/Search.json?hsdid=#{household_id}").results
       end
+
+      def search_people_by_barcode(barcode)
+        get("/v1/People/Search.json?barCode=#{barcode}").results
+      end
     end
   end
 end
